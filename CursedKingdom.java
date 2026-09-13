@@ -8,7 +8,6 @@ interface Attackable {
     int attack();
 }
 
-// ---------- Generic Item & Inventory (Composition) ----------
 class Item implements Serializable, Cloneable {
     private static final long serialVersionUID = 1L;
     private final String id; // immutable
@@ -66,7 +65,7 @@ class Inventory implements Serializable {
     public List<Item> getItems() { return itemSet.list(); }
 }
 
-// ---------- Weapon Hierarchy (Inheritance) ----------
+// Weapon Hierarchy (Inheritance)
 abstract class Weapon implements Serializable, Attackable {
     private static final long serialVersionUID = 1L;
     protected String name;
@@ -104,7 +103,7 @@ class Staff extends Weapon {
     public int attack() { return baseDamage + new Random().nextInt(10); }
 }
 
-// ---------- Skill (Aggregation) ----------
+// Skill (Aggregation)
 class Skill implements Serializable, Cloneable {
     private static final long serialVersionUID = 1L;
     private static int skillCounter = 0; // static counter
@@ -130,7 +129,7 @@ class Skill implements Serializable, Cloneable {
     }
 }
 
-// ---------- Abstract Character (Comparable & Cloneable) ----------
+//Abstract Character (Comparable & Cloneable) 
 abstract class Character implements Serializable, Comparable<Character>, Cloneable {
     private static final long serialVersionUID = 1L;
 
@@ -317,7 +316,7 @@ class GameManager {
     }
 }
 
-// ---------- Main Program ----------
+//  Main Program 
 public class CursedKingdom extends JFrame {
     private final GameManager gm = new GameManager();
     private final CardLayout cardLayout = new CardLayout();
